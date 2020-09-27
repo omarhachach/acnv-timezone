@@ -35,7 +35,7 @@ func main() {
 		dbConfig.Logger = logger.Default.LogMode(logger.Error)
 	}
 
-	db, err := gorm.Open(sqlite.Open(config.DB), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(config.DB), dbConfig)
 	if err != nil {
 		panic("error opening db: " + err.Error())
 	}
